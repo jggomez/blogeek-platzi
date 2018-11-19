@@ -6,14 +6,15 @@ $(() => {
         const nombres = $('#nombreContactoReg').val();
         const email = $('#emailContactoReg').val();
         const password = $('#passwordReg').val();
-        const auth = Autenticacion()
+        const auth = new Autenticacion()
         auth.crearCuentaEmailPass(email, password, nombres)
     });
 
     $("#btnInicioEmail").click(() => {
         const email = $('#emailSesion').val();
         const password = $('#passwordSesion').val();
-        // TODO : LLamar auth cuenta con email
+        const auth = new Autenticacion()
+        auth.autEmailPass(email, password)
     });
 
     //$("#authGoogle").click(() => //AUTH con GOOGLE);
