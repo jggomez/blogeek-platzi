@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>VideoBlog Geek</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link href="https://fonts.googleapis.com/css?family=Allerta|Montserrat" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--build:css css/styles.min.css -->
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <!--endbuild-->
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+    <header class="headerppal">
+        <figure class="header-logotipo">
+            <img src="imagenes/logo.png" alt="Blog Logotipo">
+        </figure>
+        <h2 class="titulo">VideoBlog Geek</h2>
+        <h3 class="titulo-a">Encuentra los Videos mas poderosos de los geeks</h2>
+            <a id="btnInicioSesion" class="modal-trigger waves-effect waves-light btn btnPpal">Iniciar Sesión</a>
+            <figure class="header-avatar">
+                <img id="avatar" src="imagenes/usuario.png" alt="Avatar">
+            </figure>
+    </header>
+    <nav class="menu">
+        <ul>
+            <li><a id="btnTodoPost">Todos los Posts</a></li>
+            <li><a id="btnMisPost">Mis Posts</a></li>
+            <li><a id="btnModalPost">Realiza un Post</a></li>
+            <li><a href="index.html#footer">Contactenos</a></li>
+        </ul>
+    </nav>
+    <h4 id="tituloPost" class="titulo-posts">Posts de la Comunidad</h4>
+    <section class="posts" id="posts">        
+    </section>
+    <footer class="footer" id="footer">
+
+        <div class="contenedor-footer">
+
+            <div>
+            </div>
+
+            <div class="redesSociales">
+                <!-- Esto es el footer -->
+                <p class="realizadopor"><strong>Developed by Juan G.</strong></p>
+                <p class="realizadoclase"><strong>GDE Firebase</strong></p>
+                <div class="logos-redes">
+                    <a class="logo-facebook" target="_blank" href="https://www.facebook.com/jggomez84"></a>
+                    <a class="logo-twitter" target="_blank" href="https://twitter.com/jggomezt"></a>
+                    <a class="logo-github" target="_blank" href="https://github.com/jggomez"></a>
+                </div>
+            </div>
+
+            <div class="formulario-contactenos">
+                <div class="form-col1">
+                    <div class="input-field">
+                        <input id="nombreContacto" type="text" required />
+                        <label for="nombreContacto">Nombres:</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="emailContacto" type="email" required />
+                        <label for="emailContacto">E-mail</label>
+                    </div>
+                    <div class="tipos-comentarios">
+                        <input id="comentarioTipo" type="checkbox" name="Comentarios" value="comentarios" checked />
+                        <label for="comentarioTipo">
+                            Comentarios
+                        </label>
+                        <input id="reclamoTipo" type="checkbox" name="reclamos" value="Reclamos" />
+                        <label for="reclamoTipo"> Reclamos
+                        </label>
+                        <input id="mejoraTipo" type="checkbox" name="Mejora" value="mejora" />
+                        <label for="mejoraTipo">
+                            Mejora
+                        </label>
+                        <input id="otroTipo" type="checkbox" name="Otro" value="otro" />
+                        <label for="otroTipo">
+                            Otro
+                        </label>
+                    </div>
+                </div>
+                <div class="form-col2">
+                    <label for="comentariosContacto">Comentarios:</label>
+                    <textarea id="comentariosContacto" placeholder="Escribe tu comentario" cols="30" rows="6" required></textarea>
+                    <input type="submit" class="waves-effect waves-light btn btnPpal" value="Enviar" />
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Inicio de Sesión -->
+    <div id="modalSesion" class="modal modal-registro">
+        <div class="modal-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col s12 m6 registro-bienvenida">
+                        <h4>Bienvenido al VideoBlog Geek</h4>
+                        <div class="registro-bienvenida-texto">
+                            Publica, aprende y conecta con otros por medio de videos Geek.
+                        </div>
+                        <span>Empieza Ahora</span>
+                    </div>
+                    <div class="col s12 m6 registro-formulario">
+                        <div class="input-field">                            
+                            <input id="emailSesion" type="email" required/>
+                            <label for="emailSesion">E-mail:</label>
+                        </div>
+                        <div class="input-field">
+                            <input id="passwordSesion" type="password" required />
+                            <label for="passwordSesion">Password:</label>
+                        </div>
+                        <div class="div-btnInicioSesion">
+                            <a id="btnInicioEmail" class="btn waves-effect waves-light">Iniciar Sesión<i class="material-icons right">send</i></a>
+                        </div>           
+                        <div class="lbl-ingresar-redes">
+                            <span>INGRESA CON:</span>
+                        </div>
+                        <div class="registro-iconos-redes">                                          
+                            <a id="authFB" class="logo-facebook" href="#"></a>
+                            <a id="authGoogle" class="logo-google" href="#"></a>
+                            <a id="authTwitter" class="logo-twitter" href="#"></a>
+                        </div> 
+                    </div>
+                    <div class="col s12 m12 div-btnRegistrarse">
+                        <a id="btnRegistrarse" class="btn waves-effect waves-light">Crear una cuenta<i class="material-icons left">account_box</i></a>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de registro -->
+    <div id="modalRegistro" class="modal modal-registro">
+        <div class="modal-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col s12 m6 registro-bienvenida">
+                        <h4>Bienvenido al VideoBlog Geek</h4>
+                        <div class="registro-bienvenida-texto">
+                            Publica, aprende y conecta con otros por medio de videos Geek.
+                        </div>
+                        <span>Empieza Ahora</span>
+                    </div>
+                    <div class="col s12 m6 registro-formulario">
+                        <div class="input-field">
+                            <input id="nombreContactoReg" type="text"  maxlength="50" data-length="50" required />
+                            <label for="nombreContactoReg">Nombres:</label>
+                        </div>
+                        <div class="input-field">
+                            <input id="emailContactoReg" type="email"  maxlength="50" data-length="50" required />
+                            <label for="emailContactoReg">E-mail:</label>
+                        </div>
+                        <div class="input-field">
+                            <input id="passwordReg" type="password"  maxlength="10" data-length="10" required />
+                            <label for="passwordReg">Password:</label>
+                        </div>
+                        <div class="div-btnInicioSesion">
+                            <a id="btnRegistroEmail" class="btn waves-effect waves-light">Registrarse<i class="material-icons left">account_box</i></a>
+                        </div>                        
+                    </div>
+                    <div class="col s12 m12 div-btnRegistrarse">
+                        <a id="btnIniciarSesion" class="btn waves-effect waves-light">Iniciar Sesión<i class="material-icons right">send</i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Post -->
+    <div id="modalPost" class="modal modal-registro">
+        <div class="modal-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col s12 m6 registro-bienvenida">
+                        <h4>Realiza un Post</h4>
+                        <div class="registro-bienvenida-texto">
+                            Comparte un video interesante para la comunidad
+                        </div>
+                        <span>Comparte ahora</span>
+                    </div>
+                    <div class="col s12 m6 registro-formulario">
+                        <div class="input-field">
+                            <input id="tituloNewPost" type="text" maxlength="30" data-length="30" required />
+                            <label for="tituloNewPost">Titulo:</label>
+                        </div>
+                        <div class="input-field">
+                            <textarea id="descripcionNewPost" type="text"  maxlength="200" data-length="200" class="materialize-textarea" required></textarea>
+                            <label for="descripcionNewPost">Descripción:</label>
+                        </div>
+                        <div class="input-field">
+                            <input id="linkVideoNewPost" type="text" required />
+                            <label for="linkVideoNewPost">Enlace del video:</label>
+                        </div>
+                        <div class="progress-panel">
+                            <label for="btnUploadFile">Imagen:</label>
+                            <input type="file" value="upload" id="btnUploadFile" />
+                            <div class="progress">
+                                <div class="determinate" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="div-btnInicioSesion">
+                            <a id="btnRegistroPost" class="btn waves-effect waves-light">Crear Post<i class="material-icons left">create</i></a>
+                        </div>                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
+
+
+
+<!--build:js js/main.min.js -->
+<script type="text/javascript" src="js/config/ConfigFirebase.js"></script>
+<script type="text/javascript" src="js/util/util.js"></script>
+<script type="text/javascript" src="js/post/post.js"></script>
+<script type="text/javascript" src="js/general.js"></script>
+<script type="text/javascript" src="js/auth/autenticacion.js"></script>
+<script type="text/javascript" src="js/auth/authController.js"></script>
+<script type="text/javascript" src="js/post/postController.js"></script>
+
+
+<!-- endbuild -->
+
+</html>

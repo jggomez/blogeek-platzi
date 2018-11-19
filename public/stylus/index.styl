@@ -1,0 +1,524 @@
+colorPrimario = #126798
+colorBlanco = #FFFFFF
+colorAzulAguaMarina = #219cca
+colorAccent = #7acc2d
+colorGris = #eeeeee
+
+@font-face {
+  font-family: "Flaticon";
+  src: url("../fonts/Flaticon.eot");
+  src: url("../fonts/Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/Flaticon.woff") format("woff"),
+       url("../fonts/Flaticon.ttf") format("truetype"),
+       url("../fonts/Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("../fonts/Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   	
+	font-family: Flaticon;
+    font-size: 20px;
+	font-style: normal;
+	margin-left: 20px;
+}
+
+@font-face {
+  font-family: 'icono_estrellita_vacia';
+  src:  url('../fonts/icomoon.eot?n253df');
+  src:  url('../fonts/icomoon.eot?n253df#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?n253df') format('truetype'),
+    url('../fonts/icomoon.woff?n253df') format('woff'),
+    url('../fonts/icomoon.svg?n253df#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'icono_estrellita_llena';
+  src:  url('../fonts/estrellallena.eot?az4rfq');
+  src:  url('../fonts/estrellallena.eot?az4rfq#iefix') format('embedded-opentype'),
+    url('../fonts/estrellallena.ttf?az4rfq') format('truetype'),
+    url('../fonts/estrellallena.woff?az4rfq') format('woff'),
+    url('../fonts/estrellallena.svg?az4rfq#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+      font-family: 'googleicon';
+      src: url('../fonts/googleicon.eot?9927647');
+      src: url('../fonts/googleicon.eot?9927647#iefix') format('embedded-opentype'),
+           url('../fonts/googleicon.woff?9927647') format('woff'),
+           url('../fonts/googleicon.ttf?9927647') format('truetype'),
+           url('../fonts/googleicon.svg?9927647#googleicon') format('svg');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+				
+.btnPpal
+	
+	background colorAccent !important 
+	font-family 'Montserrat', sans-serif
+	font-weight bold		
+	transition .5s
+			
+	&:hover
+		background colorAccent
+		color white
+		font-size 17px
+
+body
+	font-family: 'Allerta', sans-serif;
+	
+.headerppal
+	background colorPrimario
+	overflow hidden
+	box-shadow 0 8px 10px rgba(0,0,0,0.5)
+	padding-bottom 30px
+	text-align center
+	
+	.titulo
+		color colorBlanco
+		font-size 40px
+		font-family 'Montserrat', sans-serif
+		margin-top 30px
+		margin-bottom 0
+		
+	.titulo-a		
+		color colorBlanco
+		font-size 20px
+		padding-top 5px		
+		padding-bottom 15px
+	
+	.header-logotipo
+		margin-right 5em
+		margin-left 50px
+		margin-top 20px		
+		
+		img	
+			border-right-style solid
+			border-width 2px
+			border-color white
+			border-radius 60%
+			height 140px
+			padding 20px
+			width 140px
+			transition .6s
+			
+			&:hover
+				transform scale(1.2)
+		
+	.header-avatar
+		display none
+		float right
+		margin-top -200px
+		margin-right 50px
+		
+		img
+			border-radius 60%
+			height 80px
+			width 80px
+			transition .6s
+			transform translateY(100px)
+										
+.menu
+	background colorAzulAguaMarina
+	border-left 10px solid white
+	box-shadow 0 8px 10px rgba(0,0,0,0.5)
+	
+	ul
+		margin 0px
+		
+		li 
+			display block
+			line-height 40px
+			transition .6s
+			
+			&:hover
+				background colorPrimario	
+			
+			a 
+				color colorBlanco
+				text-decoration none
+				padding 0 1em
+				transition .6s
+				
+				&:hover
+					font-size 17px	
+
+.footer
+	
+	height 100%
+	background colorPrimario
+	margin 0px
+	
+	.contenedor-footer
+		display flex
+		flex-direction column-reverse		
+		justify-content space-around
+		
+		.formulario-contactenos
+			display flex
+			flex-direction column
+			margin-left 20px
+			
+			.form-col1
+			.form-col2
+				margin-right 30px		
+				color white
+				display flex
+				flex-direction column
+				
+				label					
+				input
+					margin-bottom 10px
+					
+			.form-col1
+				
+				label
+					color white			
+				
+			.form-col1
+				margin-top 10px
+				margin-bottom 10px													
+												
+				.tipos-comentarios
+					display flex
+					flex-direction column					
+					
+					label						
+						font-size 13px
+						
+			.form-col2
+				align-items flex-start
+				
+				label
+					color white
+					margin-bottom 1em
+				
+				textarea
+					margin-bottom 10px
+					height 110px
+						
+		.redesSociales					
+			
+			.realizadopor		
+				padding-top 30px
+				
+			.realizadoclase		
+				padding-bottom 30px
+				
+			p		
+				color colorBlanco
+				text-align center
+				margin 10px
+				
+			.logos-redes
+				
+				text-align center
+				
+				a
+					text-decoration none									
+				
+				.logo-facebook		
+					
+					&:before
+							
+						color colorAccent					
+						content: "\f101"
+						font-size 30px
+						font-family "Flaticon"
+						
+				.logo-twitter
+					
+					&:before				
+						color colorAccent					
+						content: "\f102"
+						font-size 30px
+						font-family "Flaticon"							
+						
+				.logo-github
+					
+					&:before				
+						color colorAccent					
+						content: "\f100"
+						font-size 30px
+						font-family "Flaticon"
+					
+.posts
+		
+	padding 0.8em
+	margin 0px
+	text-align center
+	
+	.post
+		
+		background colorBlanco
+		border 1px solid black
+		box-shadow 10px 9px 25px -1px rgba(0,0,0,0.75)
+		display block
+		margin-bottom 1.5em
+		margin-right 1.5em	
+		width 100%
+		
+		.post-calificacion
+			text-align center
+			padding 0.5em
+						
+			.post-estrellita-vacia
+				
+				text-decoration none
+				
+				&:before
+					color colorAccent
+					content: "\e9d7"
+					font-family "icono_estrellita_vacia"
+					
+			.post-estrellita-llena
+				
+				text-decoration none
+				
+				&:before
+					color colorAccent
+					content: "\e9d9"
+					font-family "icono_estrellita_llena"
+		
+		.post-titulo
+			text-align center
+			background colorGris
+			font-family 'Montserrat', sans-serif			
+			padding 0.5em
+
+			h5
+				font-weight bold
+			
+		.post-video
+			text-align center
+			padding 0 0.5em
+			
+			iframe
+				width 100%
+				height 300px
+
+			.post-imagen-video
+				width 100%
+				height 300px
+			
+		.post-descripcion
+			text-align center			
+			background colorGris	
+			font-family: 'Allerta', sans-serif;
+			padding 0.5em
+			font-size 17px
+
+		.post-videolink
+			text-align center 			
+			background colorPrimario	
+			color colorBlanco	
+			font-family 'Allerta', sans-serif
+			padding 0.5em
+			font-size 17px
+
+			a
+				color colorBlanco
+				text-decoration  underline 
+			
+		.post-footer
+			background colorPrimario			
+			color colorBlanco				
+			font-size 17px
+			padding-bottom 0.5em			
+			padding-top 1em
+			padding-left 0.5em
+			text-align left
+			width 100%			
+
+.modal-registro
+	width 80% !important
+
+.registro-bienvenida
+	text-align center
+	width 100%		
+	
+	h4
+		color colorPrimario
+		font-size 1.5em
+		font-family 'Montserrat', sans-serif
+		font-weight bold
+		margin-bottom 0.5em
+		
+	.registro-bienvenida-texto		
+		margin-bottom 1em
+		font-size 1em
+		text-align left
+		
+	span		
+		color colorAccent
+		font-size 1.2em
+		font-weight bold
+		
+.registro-formulario		
+
+	border-left 0.3em solid colorPrimario
+	
+	div
+		margin 0
+			
+	label
+		color colorPrimario
+		font-size 1em			
+			
+	a
+		margin-top 2em		
+		text-align center
+		width 80% !important
+
+	.div-btnInicioSesion
+		text-align center
+
+		a
+			background colorPrimario !important
+
+	.lbl-ingresar-redes
+		color colorPrimario		
+		font-weight bold
+		padding-top 1em
+		text-align center		
+		
+	.registro-iconos-redes
+	
+		background colorBlanco !important
+
+		text-align center
+		
+		.logo-facebook		
+						
+			&:before
+								
+				color colorAccent					
+				content: "\f101"
+				font-size 40px
+				font-family "Flaticon"
+
+		.logo-google	
+
+			margin-left 1em	
+						
+			&:before
+								
+				color colorAccent					
+				content: "\f2b3"
+				font-size 45px
+				font-family "googleicon"
+							
+		.logo-twitter
+			
+			margin-left 1em
+						
+			&:before				
+				color colorAccent					
+				content: "\f102"
+				font-size 40px
+				font-family "Flaticon"			
+
+.div-btnRegistrarse
+	text-align center
+	margin-top 2em
+	margin-bottom 0em
+
+	a
+		background colorPrimario !important
+	
+.titulo-posts
+	color colorPrimario
+	font-weight bold
+	text-align center
+
+#btnUploadFile
+	background colorPrimario !important 
+	font-family 'Montserrat', sans-serif
+	font-weight bold		
+	transition .5s
+	margin-bottom 1em
+	margin-top 1em
+				
+@media screen and (min-width: 768px)
+
+	.headerppal
+		text-align left
+		
+		.header-logotipo
+			float left
+			
+		.header-avatar
+			display inline-block
+
+	.menu
+		
+		ul
+			height 40px
+			
+			li
+				display inline-block
+		
+	.posts		
+		.post
+			display inline-block
+			margin-top 25px
+			width 47%
+			
+			.post-descripcion
+				height 120px			
+			
+	.footer
+	
+		.contenedor-footer
+			display flex
+			flex-direction row		
+			justify-content space-around
+			
+			.formulario-contactenos
+				display flex
+				flex-direction row
+				margin-top 30px
+				
+				.form-col1
+					margin-top 0
+					margin-bottom 0													
+												
+					.tipos-comentarios
+						display flex
+						flex-direction row					
+
+			.redesSociales
+				margin-top 40px
+				margin-bottom 45px
+				padding-right 3em
+				border-right 3px solid white
+
+	
+	.registro-bienvenida
+		text-align left
+		
+		h4
+			margin-bottom 1em
+			font-size 2em
+		
+		.registro-bienvenida-texto		
+			margin-bottom 2em
+			font-size 1.5em
+		
+		span		
+			font-size 1.5em
+		
+	.modal-registro
+		width 70% !important
