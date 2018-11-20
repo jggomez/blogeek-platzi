@@ -16,6 +16,10 @@ class Post {
     
   }
 
+  subirImagenPost (file, uid) {
+      
+  }
+
   obtenerTemplatePostVacio () {
     return `<article class="post">
       <div class="post-titulo">
