@@ -26,30 +26,36 @@ class Post {
   }
 
   consultarTodosPost () {
-    this.db.collection('posts').onSnapshot(querySnapshot => {
-      $('#posts').empty()
-      if (querySnapshot.empty) {
-        $('#posts').append(this.obtenerTemplatePostVacio())
-      } else {
-        querySnapshot.forEach(post => {
-          let postHtml = this.obtenerPostTemplate(
-            post.data().autor,
-            post.data().titulo,
-            post.data().descripcion,
-            post.data().videoLink,
-            post.data().imagenLink,
-            Utilidad.obtenerFecha(post.data().fecha.toDate())
-          )
-          $('#posts').append(postHtml)
-        })
-      }
-    })
+    this.db
+      .collection('posts')
+      .orderBy('fecha', 'asc')
+      .orderBy('titulo', 'asc')
+      .onSnapshot(querySnapshot => {
+        $('#posts').empty()
+        if (querySnapshot.empty) {
+          $('#posts').append(this.obtenerTemplatePostVacio())
+        } else {
+          querySnapshot.forEach(post => {
+            let postHtml = this.obtenerPostTemplate(
+              post.data().autor,
+              post.data().titulo,
+              post.data().descripcion,
+              post.data().videoLink,
+              post.data().imagenLink,
+              Utilidad.obtenerFecha(post.data().fecha.toDate())
+            )
+            $('#posts').append(postHtml)
+          })
+        }
+      })
   }
 
   consultarPostxUsuario (emailUser) {
     this.db
       .collection('posts')
-      .where('autor', '==', emailUser)
+      .orderBy('fecha', 'asc')
+      .orderBy('titulo', 'asc')
+      .where('autor', '==', emailUser)      
       .onSnapshot(querySnapshot => {
         $('#posts').empty()
         if (querySnapshot.empty) {
