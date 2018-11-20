@@ -1,24 +1,35 @@
 class Post {
   constructor () {
-      // TODO inicializar firestore y settings
-
+    this.db = firebase.firestore()
+    const settings = { timestampsInSnapshots: true }
+    this.db.settings(settings)
   }
 
   crearPost (uid, emailUser, titulo, descripcion, imagenLink, videoLink) {
-    
+    return this.db
+      .collection('posts')
+      .add({
+        uid: uid,
+        autor: emailUser,
+        titulo: titulo,
+        descripcion: descripcion,
+        imagenLink: imagenLink,
+        videoLink: videoLink,
+        fecha: firebase.firestore.FieldValue.serverTimestamp()
+      })
+      .then(refDoc => {
+        console.log(`Id del post => ${refDoc.id}`)
+      })
+      .catch(error => {
+        console.error(`Error creando el post => ${error}`)
+      })
   }
 
-  consultarTodosPost () {
-    
-  }
+  consultarTodosPost () {}
 
-  consultarPostxUsuario (emailUser) {
-    
-  }
+  consultarPostxUsuario (emailUser) {}
 
-  subirImagenPost (file, uid) {
-      
-  }
+  subirImagenPost (file, uid) {}
 
   obtenerTemplatePostVacio () {
     return `<article class="post">
