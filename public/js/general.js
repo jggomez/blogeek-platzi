@@ -2,14 +2,48 @@ $(() => {
   $('.tooltipped').tooltip({ delay: 50 })
   $('.modal').modal()
 
-  // TODO: Adicionar el service worker
-
-  // Init Firebase nuevamente
   firebase.initializeApp(varConfig)
 
-  // TODO: Registrar LLave publica de messaging
+  navigator.serviceWorker
+    .register('notitificaciones-sw.js')
+    .then(registro => {
+      console.log('service worker registrado')
+      firebase.messaging().useServiceWorker(registro)
+    })
+    .catch(error => {
+      console.error(`Error al registrar el service worker => ${error}`)
+    })
 
-  // TODO: Solicitar permisos para las notificaciones
+  const messaging = firebase.messaging()
+
+  // Registrar credenciales web
+  messaging.usePublicVapidKey(
+    'BNXFobbKFCs-uAVxoPSqtgtm9GrVypZwx9n2PdS6GCqynO48xgPL0vUhX5hd9xgawFTRFzvfyYe0tt8f_IcL_-w'
+  )
+
+  // Solicitar permisos para las notificaciones
+  messaging
+    .requestPermission()
+    .then(() => {
+      console.log('permiso otorgado')
+      return messaging.getToken()
+    })
+    .then(token => {
+      const db = firebase.firestore()
+      db.settings({ timestampsInSnapshots: true })
+      db
+        .collection('tokens')
+        .doc(token)
+        .set({
+          token: token
+        })
+        .catch(error => {
+          console.error(`Error al insertar el token en la BD => ${error}`)
+        })
+    })
+
+  // TODO: Obtener el token cuando se refresca
+  
 
   // TODO: Recibir las notificaciones cuando el usuario esta foreground
 
@@ -71,7 +105,7 @@ $(() => {
   $('#btnTodoPost').click(() => {
     $('#tituloPost').text('Posts de la Comunidad')
     const post = new Post()
-    post.consultarTodosPost();
+    post.consultarTodosPost()
   })
 
   $('#btnMisPost').click(() => {

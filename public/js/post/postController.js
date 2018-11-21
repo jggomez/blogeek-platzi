@@ -7,9 +7,12 @@ $(() => {
     $('.determinate').attr('style', `width: 0%`)
     sessionStorage.setItem('imgNewPost', null)
 
-    // TODO: Validar que el usuario esta autenticado
+    const user = firebase.auth().currentUser
 
-    // Materialize.toast(`Para crear el post debes estar autenticado`, 4000)
+    if (user == null) {
+      Materialize.toast(`Para crear el post debes estar autenticado`, 4000)
+      return
+    }    
 
     $('#modalPost').modal('open')
   })
