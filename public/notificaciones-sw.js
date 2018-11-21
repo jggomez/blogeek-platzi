@@ -8,7 +8,7 @@ firebase.initializeApp({
 
 const messaging = firebase.messaging()
 
-messaging.setBackgroundMessaheHandler(payload =>{
+messaging.setBackgroundMessageHandler(payload =>{
     const tituloNotificacion = 'Ya tenemos un nuevo post'
     const opcionesNotificacion = {
         body: payload.data.titulo,
@@ -16,7 +16,7 @@ messaging.setBackgroundMessaheHandler(payload =>{
         click_action: "https://blogeekplatzi.firebaseapp.com"
     }
 
-    return self.registration.showNotificacion(
+    return self.registration.showNotification(
         tituloNotificacion,
         opcionesNotificacion
     )

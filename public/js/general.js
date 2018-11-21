@@ -5,7 +5,7 @@ $(() => {
   firebase.initializeApp(varConfig)
 
   navigator.serviceWorker
-    .register('notitificaciones-sw.js')
+    .register('notificaciones-sw.js')
     .then(registro => {
       console.log('service worker registrado')
       firebase.messaging().useServiceWorker(registro)
@@ -29,6 +29,8 @@ $(() => {
       return messaging.getToken()
     })
     .then(token => {
+      console.log("token")
+      console.log(token)
       const db = firebase.firestore()
       db.settings({ timestampsInSnapshots: true })
       db
@@ -40,6 +42,9 @@ $(() => {
         .catch(error => {
           console.error(`Error al insertar el token en la BD => ${error}`)
         })
+    })
+    .catch(error => {
+      console.error(`Permiso no otorgado => ${error}`)
     })
 
   // Obtener el token cuando se refresca
@@ -62,6 +67,7 @@ $(() => {
 
   // Recibir las notificaciones cuando el usuario esta foreground
   messaging.onMessage(payload => {
+    console.log("mensaje en foreground")
     Materialize.toast(
       `Ya tenemos un nuevo post. Revísalo, se llama ${payload.data.titulo}`,
       6000
