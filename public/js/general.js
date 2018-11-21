@@ -4,6 +4,7 @@ $(() => {
 
   firebase.initializeApp(varConfig)
 
+  // Se registra el service worker
   navigator.serviceWorker
     .register('notificaciones-sw.js')
     .then(registro => {
@@ -29,7 +30,7 @@ $(() => {
       return messaging.getToken()
     })
     .then(token => {
-      console.log("token")
+      console.log('token')
       console.log(token)
       const db = firebase.firestore()
       db.settings({ timestampsInSnapshots: true })
@@ -67,7 +68,7 @@ $(() => {
 
   // Recibir las notificaciones cuando el usuario esta foreground
   messaging.onMessage(payload => {
-    console.log("mensaje en foreground")
+    console.log('mensaje en foreground')
     Materialize.toast(
       `Ya tenemos un nuevo post. Revísalo, se llama ${payload.data.titulo}`,
       6000
@@ -77,7 +78,7 @@ $(() => {
   const post = new Post()
   post.consultarTodosPost()
 
-  // TODO: Firebase observador del cambio de estado
+  // Firebase observador del cambio de estado de auth
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
       $('#btnInicioSesion').text('Salir')
@@ -92,7 +93,7 @@ $(() => {
     }
   })
 
-  // TODO: Evento boton inicio sesion
+  // Evento boton inicio sesion
   $('#btnInicioSesion').click(() => {
     const user = firebase.auth().currentUser
     if (user) {
