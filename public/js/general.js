@@ -42,12 +42,31 @@ $(() => {
         })
     })
 
-  // TODO: Obtener el token cuando se refresca
-  
+  // Obtener el token cuando se refresca
+  messaging.onTokenRefresh(() => {
+    messaging.getToken().then(token => {
+      console.log('token se ha renovado')
+      const db = firebase.firestore()
+      db.settings({ timestampsInSnapshots: true })
+      db
+        .collection('tokens')
+        .doc(token)
+        .set({
+          token: token
+        })
+        .catch(error => {
+          console.error(`Error al insertar el token en la BD => ${error}`)
+        })
+    })
+  })
 
-  // TODO: Recibir las notificaciones cuando el usuario esta foreground
-
-  // TODO: Recibir las notificaciones cuando el usuario esta background
+  // Recibir las notificaciones cuando el usuario esta foreground
+  messaging.onMessage(payload => {
+    Materialize.toast(
+      `Ya tenemos un nuevo post. Revísalo, se llama ${payload.data.titulo}`,
+      6000
+    )
+  })
 
   const post = new Post()
   post.consultarTodosPost()
